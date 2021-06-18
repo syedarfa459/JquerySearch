@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Seacrh</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $( function() {
+          
+          $( "#tags" ).autocomplete({
+            source: "{% url 'locapp:search' %}"
+          });
+        } );
+        </script>
+</head>
+<body>
+    <h1>Hola Everyone! This is a short search suggestion project</h1>
+    <h3>Input value L in the text field.Since only records saved in database start from L</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" id="tags">
+        <input type="submit" value="search">
+    </form>
+
+</body>
+</html>
